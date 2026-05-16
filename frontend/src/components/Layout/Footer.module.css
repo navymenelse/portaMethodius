@@ -1,0 +1,83 @@
+.footer {
+  padding: 80px 5% 40px;
+  background-color: var(--navy);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.dot {
+  color: var(--cyan);
+}
+
+.tagline {
+  color: var(--white-muted);
+  margin-top: 1rem;
+}
+
+.links {
+  display: flex;
+  gap: 4rem;
+}
+
+.linkGroup h4 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.linkGroup a {
+  display: block;
+  color: var(--white-muted);
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.linkGroup a:hover {
+  color: var(--cyan);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--white-muted);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tech {
+  font-family: 'JetBrains Mono', monospace;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .top {
+    flex-direction: column;
+  }
+  .links {
+    gap: 2rem;
+    flex-direction: column;
+  }
+}

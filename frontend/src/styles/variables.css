@@ -1,0 +1,27 @@
+:root {
+  /* Primarios */
+  --navy:        hsl(220, 45%, 12%);
+  --navy-light:  hsl(220, 40%, 18%);
+  --steel:       hsl(220, 15%, 40%);
+  
+  /* Acentos */
+  --cyan:        hsl(185, 85%, 55%);
+  --cyan-glow:   hsl(185, 85%, 55%, 0.3);
+  --green-wa:    hsl(142, 70%, 45%);
+  
+  /* Neutros */
+  --white:       hsl(0, 0%, 98%);
+  --white-muted: hsl(220, 15%, 75%);
+  
+  /* Gradientes */
+  --gradient-hero: linear-gradient(135deg, var(--navy) 0%, hsl(200, 50%, 15%) 100%);
+  --gradient-cta:  linear-gradient(135deg, var(--cyan) 0%, hsl(200, 80%, 50%) 100%);
+  
+  /* Glassmorphism */
+  --glass-bg:    hsla(220, 40%, 18%, 0.6);
+  --glass-blur:  blur(20px);
+  --glass-border: 1px solid hsla(220, 40%, 30%, 0.3);
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
