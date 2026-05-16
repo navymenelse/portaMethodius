@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import init, { process_conversation } from '../../wasm-agent-pkg/wasm_agent';
+import init, { process_conversation } from '../../wasm-agent-pkg/wasm_agent.js';
 import styles from './ChatWidget.module.css';
 
 const ChatWidget = () => {
@@ -13,7 +13,7 @@ const ChatWidget = () => {
     pain_point: ''
   });
   const [isWasmReady, setIsWasmReady] = useState(false);
-  
+
   const scrollRef = useRef(null);
   const processingRef = useRef(false);
 
@@ -47,10 +47,10 @@ const ChatWidget = () => {
       const stateJson = JSON.stringify(chatState);
       const outputJson = process_conversation(stateJson, inputValue);
       const output = JSON.parse(outputJson);
-      
+
       // Actualizamos el estado en JS
       setChatState(output.new_state);
-      
+
       // Si el nuevo estado es de redirección (4), enviamos el lead al backend
       if (output.new_state.state_id === 4) {
         fetch('http://localhost:3000/api/leads', {
@@ -63,12 +63,12 @@ const ChatWidget = () => {
           })
         }).catch(err => console.error("Error persistiendo lead:", err));
       }
-      
+
       // Añadimos el mensaje de respuesta
-      setMessages(prev => [...prev, { 
-        text: output.response_text, 
+      setMessages(prev => [...prev, {
+        text: output.response_text,
         sender: 'agent',
-        link: output.whatsapp_link 
+        link: output.whatsapp_link
       }]);
 
     } catch (e) {
@@ -86,7 +86,7 @@ const ChatWidget = () => {
       const stateJson = JSON.stringify(chatState);
       const outputJson = process_conversation(stateJson, "hola");
       const output = JSON.parse(outputJson);
-      
+
       setChatState(output.new_state);
       setMessages([{ text: output.response_text, sender: 'agent' }]);
     }
@@ -106,7 +106,7 @@ const ChatWidget = () => {
             </div>
             <button onClick={toggleChat} className={styles.close}>×</button>
           </div>
-          
+
           <div className={styles.messages} ref={scrollRef}>
             {messages.map((msg, i) => (
               <div key={i} className={`${styles.bubble} ${styles[msg.sender]}`}>
@@ -122,8 +122,8 @@ const ChatWidget = () => {
           </div>
 
           <div className={styles.footer}>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
