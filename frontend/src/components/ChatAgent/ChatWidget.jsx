@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import init, { process_conversation } from '../../wasm-agent-pkg/wasm_agent.js';
+import init, { process_conversation } from '../../wasm-agent-pkg/wasm_agent';
 import styles from './ChatWidget.module.css';
 
 const ChatWidget = () => {
